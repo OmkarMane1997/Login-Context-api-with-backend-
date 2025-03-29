@@ -1,10 +1,16 @@
 import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
-
+import { Navigate } from 'react-router-dom';
 const Login = () => {
-  const { login } = useContext(AuthContext);
-  const [user, setUser] = useState({
+  
+  const { login ,user} = useContext(AuthContext);
+
+  // If user is already logged in, redirect to dashboard
+  if (user) {
+    return <Navigate to="/Dashboard" />;
+  }
+  const [userInput, setUser] = useState({
     email: '',
     password: '',
   });
@@ -37,9 +43,9 @@ const Login = () => {
   };
 
   const loginHandler = (e) => {
-    console.log('Login user info here', user);
+    console.log('Login userInput info here', userInput);
     e.preventDefault();
-    login(user.email, user.password);
+    login(userInput.email, userInput.password);
   };
   return (
     <div className="d-flex justify-content-center align-items-center vh-100">
@@ -84,7 +90,7 @@ const Login = () => {
               type="button"
               className="btn btn-success"
               disabled={
-                !user.email || !user.password || error.email || error.password
+                !userInput.email || !userInput.password || error.email || error.password
               }
               onClick={loginHandler}
             >

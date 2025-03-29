@@ -23,7 +23,7 @@ function App() {
           <Route path="/password-reset" element={<PasswordReset />} />
           <Route path="/user-registration" element={<UserRegistration />} />
           <Route
-            path="/DashBoard"
+            path="/dashboard"
             element={
               <RoleProtectedRoute allowedRoles={['admin']}>
                 <DashBoardAdmin />
@@ -31,7 +31,7 @@ function App() {
             }
           />
           <Route
-            path="/Users"
+            path="/users"
             element={
               <RoleProtectedRoute allowedRoles={['admin']}>
                 <Users />
@@ -39,7 +39,7 @@ function App() {
             }
           />
           <Route
-            path="/Categories"
+            path="/categories"
             element={
               <RoleProtectedRoute allowedRoles={['admin']}>
                 <Categories />
@@ -47,7 +47,7 @@ function App() {
             }
           />
           <Route
-            path="/Products"
+            path="/products"
             element={
               <RoleProtectedRoute allowedRoles={['customer']}>
                 <Products />
@@ -55,7 +55,7 @@ function App() {
             }
           />
           <Route
-            path="/Profile"
+            path="/profile"
             element={
               <RoleProtectedRoute allowedRoles={['admin', 'customer']}>
                 <Profile />
