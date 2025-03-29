@@ -12,6 +12,8 @@ import Products from './Component/Products';
 import Users from './Component/User';
 import Categories from './Component/Categories';
 import Profile from './Component/Profile';
+import NotFound from './Component/NotFound';
+import NotAuthorized from './Component/NotAuthorized';
 
 function App() {
   return (
@@ -60,6 +62,18 @@ function App() {
               <RoleProtectedRoute allowedRoles={['admin', 'customer']}>
                 <Profile />
               </RoleProtectedRoute>
+            }
+          />
+          <Route
+            path="/not-authorized"
+            element={
+              <NotAuthorized/>
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <NotFound/>
             }
           />
         </Routes>

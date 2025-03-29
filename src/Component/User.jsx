@@ -29,9 +29,9 @@ const Users = () => {
     getAllUser();
   }, []);
 
-  if (loading) {
-    return <Loading />;
-  }
+  // if (loading) {
+  //   return <Loading />;
+  // }
   const breadcrumbArray = [
     { name: 'DashBoard', url: '/DashBoard' },
     { name: 'Users' },
